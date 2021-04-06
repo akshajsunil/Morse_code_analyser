@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Morse Code</title>
+    <!-- <script src="../js/mc2t.js"></script> -->
+</head>
+
+<body>
+<script>
+
+
+    var morseAlphabet2 = {
+        '.-': 'a',
+        '-...': 'b',
+        '-.-.': 'c',
+        '-..': 'd',
+        '.': 'e',
+        '..-.': 'f',
+        '--.': 'g',
+        '....': 'h',
+        '..': 'i',
+        '.---': 'j',
+        '-.-': 'k',
+        '.-..': 'l',
+        '--': 'm',
+        '-.': 'n',
+        '---': 'o',
+        '.--.': 'p',
+        '--.-': 'q',
+        '.-.': 'r',
+        '...': 's',
+        '-': 't',
+        '..-': 'u',
+        '...-': 'v',
+        '.--': 'w',
+        '-..-': 'x',
+        '-.--': 'y',
+        '--..': 'z',
+        '.----': '1',
+        '..---': '2',
+        '...--': '3',
+        '....-': '4',
+        '.....': '5',
+        '-....': '6',
+        '--...': '7',
+        '---..': '8',
+        '----.': '9',
+        '-----': '0',
+        '/': ' ',
+
+    };
+
+    window.onload = function () {
+        var x = document.getElementById("myDIV");
+        x.style.display = "none"
+        document.getElementById("demo").onclick = function () {
+
+
+
+
+            var str = this.elements['t1'].value;
+            var str2 = "";
+            str.split(" ").forEach(function (letter) {
+                letter = String(letter)
+
+
+
+                str2 += morseAlphabet2[letter];
+
+                x.style.display = "block"
+
+
+            })
+            document.getElementById("res").innerHTML = str2;
+            console.log(str2);
+        }
+
+    }
+
+
+
+</script>
+
+
+    <h1>Morse Code to Text</h1>
+    <p>Enter your Morse code here and get the result...
+        
+    </p>
+    <p>Add space between letters and '/' between words</p>
+    <form method="post" id="demo" onsubmit="return false">
+
+
+        <input type="text" name="t1">
+        <input type="submit" value="Enter">
+    </form>
+
+    <div id="myDIV">
+        <h2>Morse Code :</h2>
+        <h2 id="res"></h2>
+    </div>
+</body>
+
+</html>
